@@ -16,7 +16,12 @@ export default class App extends Component {
 
   addToSavedList = movie => {
     const savedList = this.state.savedList;
-    savedList.push(movie);
+    //return true if any of the element meet the condition
+    if(savedList.some(elem => elem.id === movie.id)) {
+      return;
+    } else {
+      savedList.push(movie);
+    }
     this.setState({ savedList });
   };
 
